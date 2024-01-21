@@ -13,6 +13,7 @@ import { BiMenuAltLeft } from "react-icons/bi";
 import Navbar from "./Navbar.jsx";
 import DropDown from "./DropDown.jsx";
 const Header = ({ activeheading }) => {
+  console.log({ activeheading });
   const [searchTerm, setSearchTerm] = useState("");
   const [searchData, setSearchData] = useState(null);
   const [active, setActive] = useState(false);

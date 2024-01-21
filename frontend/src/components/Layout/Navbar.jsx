@@ -3,6 +3,10 @@ import styles from "../../styles/styles";
 import { navItems } from "../../static/data";
 import { Link } from "react-router-dom";
 const Navbar = ({ active }) => {
+  {
+    console.log(active);
+  }
+
   return (
     <div className={`${styles.noramlFlex}`}>
       {navItems &&
@@ -12,9 +16,9 @@ const Navbar = ({ active }) => {
               to={i.url}
               className={`${
                 active === index + 1
-                  ? "text-black font-bold font-Gilroy"
-                  : "text-gray-500 font-[600] hover:text-black"
-              }  px-6 cursor-pointer  font-Gilroy `}
+                  ? "text-[#000000] font-semibold"
+                  : "text-gray-500 "
+              } pb-[30px] 800px:pb-0 font-[500] px-6 cursor-pointer}`}
             >
               {i.title}
             </Link>
