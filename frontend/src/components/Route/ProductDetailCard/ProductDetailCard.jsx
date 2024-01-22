@@ -23,13 +23,13 @@ const ProductDetailCard = ({ setOpen, data }) => {
     <div className="bg-[#fff]">
       {data ? (
         <div className="fixed w-full h-screen top-0 left-0 bg-[#00000036] flex z-40 items-center justify-center">
-          <div className="w-[90%] 800px:w-[70%] h-[90vh] overflow-y-scroll 800px:h-[75vh] bg-white rounded-md shadow-sm relative p-4">
+          <div className="w-[90%] gap-2 800px:w-[70%] h-[90vh] overflow-y-scroll 800px:h-[75vh] bg-white rounded-md shadow-sm relative p-4">
             <RxCross1
               size={30}
               className="absolute right-3 top-3 z-50"
               onClick={() => setOpen(false)}
             />
-            <div className="block w-full mt-5 p-4 800px:flex">
+            <div className="block w-full gap-4 mt-5 p-4 800px:flex">
               <div className="w-full  800px:w-1/2">
                 <img src={data.image_Url[0].url} alt="" />
                 <div className="flex items-center">

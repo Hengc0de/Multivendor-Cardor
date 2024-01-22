@@ -25,9 +25,7 @@ const ProductCard = ({ data }) => {
         />
       </Link>
       <Link to={"/"}>
-        <h5 className={` ${styles.shop_name} font-[300] py-3`}>
-          {data.shop.name}
-        </h5>
+        <h5 className={` text-blue-700 font-[300] py-3`}>{data.shop.name}</h5>
       </Link>
       <Link to={`product/${product_name}`}>
         <h4 className="pb-3 font-[500]">
@@ -60,34 +58,34 @@ const ProductCard = ({ data }) => {
       <div>
         {click ? (
           <AiFillHeart
-            size={22}
+            size={30}
             onClick={() => setClick(!click)}
             color={click ? "red" : "#333"}
             title="Remove from wishlist"
-            className="cursor-pointer absolute z-10 right-2 top-5"
+            className="cursor-pointer p-1 bg-white rounded-md absolute z-10 right-2 top-5"
           />
         ) : (
           <AiOutlineHeart
-            size={22}
+            size={30}
             onClick={() => setClick(!click)}
             color={click ? "red" : "#333"}
             title="Add to wishlist"
-            className="cursor-pointer  z-10 absolute right-2 top-5"
+            className="cursor-pointer p-1 bg-white rounded-md z-10 absolute right-2 top-5"
           />
         )}
         <AiOutlineEye
-          size={22}
+          size={30}
           onClick={() => setOpen(!open)}
           color={"#333"}
           title="Quick View"
-          className="cursor-pointer  z-10 absolute right-2 top-14"
+          className="cursor-pointer p-1 bg-white rounded-md z-10 absolute right-2 top-14"
         />
         <AiOutlineShoppingCart
-          size={22}
+          size={30}
           onClick={() => setOpen(!open)}
           color={"#444"}
           title="Add to cart"
-          className="cursor-pointer  z-10 absolute right-2 top-24"
+          className="cursor-pointer p-1 bg-white rounded-md z-10 absolute right-2 top-24"
         />
         {open ? <ProductDetailCard setOpen={setOpen} data={data} /> : null}
       </div>

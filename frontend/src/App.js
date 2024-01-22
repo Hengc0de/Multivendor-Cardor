@@ -11,6 +11,9 @@ import {
   ActivationPage,
   HomePage,
   ProductPage,
+  BestSellingPage,
+  EventPage,
+  FAQPage,
 } from "./Route.js";
 import Store from "./redux/store.js";
 import { loadUser } from "./redux/actions/user.js";
@@ -37,7 +40,11 @@ const App = () => {
           element={<ActivationPage />}
         ></Route>
         <Route path="/products" element={<ProductPage />} />
+        <Route path="/best-selling" element={<BestSellingPage />} />
+        <Route path="/events" element={<EventPage />} />
+        <Route path="/faq" element={<FAQPage />} />
       </Routes>
+
       <ToastContainer
         position="top-center"
         autoClose={5000}

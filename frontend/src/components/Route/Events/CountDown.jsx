@@ -28,7 +28,7 @@ const CountDown = () => {
       return null;
     }
     return (
-      <span className="text-sm font-bold text-blue-500" key={interval}>
+      <span className="text-sm  text-blue-700" key={interval}>
         {timeLeft[interval]} {interval}{" "}
       </span>
     );

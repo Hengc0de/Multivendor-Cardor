@@ -34,13 +34,13 @@ const Categories = () => {
           {categoriesData &&
             categoriesData.map((i, index) => {
               const handleSubmit = (i) => {
-                navigate(`/products/category=${i.title}`);
+                navigate(`/products?category=${i.title}`);
               };
               return (
                 <div
                   onClick={() => handleSubmit(i)}
                   key={i.id}
-                  className="w-full h-[100px] flex items-center justify-between bg-gray-100 p-3 rounded-md  cursor-pointer overflow-hidden"
+                  className="w-full h-[100px] flex items-center justify-between p-3 rounded-md  cursor-pointer overflow-hidden"
                 >
                   <h5
                     className={`text-[18px] font-Gilroy font-bold leading=[1.3]`}
