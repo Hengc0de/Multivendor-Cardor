@@ -6,7 +6,13 @@ import { server } from "../../server";
 import { toast } from "react-toastify";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
+import { useDispatch, useSelector } from "react-redux";
+
 const Login = () => {
+  // const { isAuthenticated } = useSelector((state) => state.user);
+
+  // console.log(isAuthenticated);
+
   const navigate = useNavigate();
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
@@ -24,7 +30,9 @@ const Login = () => {
       )
       .then((res) => {
         toast.success("Login Success");
+
         navigate("/");
+        window.location.reload();
       })
       .catch((err) => {
         console.log(err);

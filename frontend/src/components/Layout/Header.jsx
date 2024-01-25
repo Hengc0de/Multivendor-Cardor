@@ -1,8 +1,10 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
+import { useSelector, useDispatch } from "react-redux";
 import styles from "../../styles/styles";
 import { Link } from "react-router-dom";
 import { categoriesData, productData } from "../../static/data";
 import { CgProfile } from "react-icons/cg";
+import { backend_url } from "../../server.js";
 import {
   AiOutlineHeart,
   AiOutlineSearch,
@@ -12,8 +14,10 @@ import { IoIosArrowDown, IoIosArrowForward } from "react-icons/io";
 import { BiMenuAltLeft } from "react-icons/bi";
 import Navbar from "./Navbar.jsx";
 import DropDown from "./DropDown.jsx";
+
 const Header = ({ activeheading }) => {
-  console.log({ activeheading });
+  const { isAuthenticated, user } = useSelector((state) => state.user);
+
   const [searchTerm, setSearchTerm] = useState("");
   const [searchData, setSearchData] = useState(null);
   const [active, setActive] = useState(false);
@@ -89,7 +93,7 @@ const Header = ({ activeheading }) => {
           <div className={`${styles.button}  `}>
             <Link to="/seller">
               <h1 className="text-white flex items-center">
-                Become seller <IoIosArrowForward className="ml-1 " />{" "}
+                Start Selling <IoIosArrowForward className="ml-1 " />{" "}
               </h1>
             </Link>
           </div>
@@ -155,9 +159,25 @@ const Header = ({ activeheading }) => {
             </div>
             <div className={`${styles.noramlFlex}`}>
               <div className="relative cursor-pointer mr-[15px]">
-                <Link to="/login">
-                  <CgProfile className="text-gray-600" size={25} />
-                </Link>
+                {isAuthenticated ? (
+                  <Link to="/profile">
+                    <img
+                      style={{
+                        height: "35px",
+                        width: "35px",
+                        borderRadius: "50%",
+                        objectFit: "cover",
+                      }}
+                      src={`${backend_url}${user.avatar.url}`}
+                      alt=""
+                    />
+                  </Link>
+                ) : (
+                  <Link to="/login">
+                    <CgProfile className="text-gray-600" size={25} />
+                  </Link>
+                )}
+
                 {/* <span className="absolute right-[-5px] top-[-5px] rounded-full bg-black text-white w-4 h-4 top right p-0 m-0 font-gilroy text-center text-[12px] leading-tight">
                   0
                 </span> */}

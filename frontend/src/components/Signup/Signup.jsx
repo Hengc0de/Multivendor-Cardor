@@ -1,13 +1,15 @@
 import React, { useState, useEffect } from "react";
 import { AiOutlineEye, AiOutlineEyeInvisible } from "react-icons/ai";
 import style from "../../styles/styles";
-import { Link } from "react-router-dom";
+import { Link, redirect } from "react-router-dom";
 import { RxAvatar } from "react-icons/rx";
 import axios from "axios";
 import { server } from "../../server";
 import { toast } from "react-toastify";
 import { useNavigate } from "react-router-dom";
+import Loading from "./Loading";
 const Signup = () => {
+  const [isLoading, setIsLoading] = useState(false);
   const navigate = useNavigate();
   const [email, setEmail] = useState("");
   const [name, setName] = useState("");
@@ -32,22 +34,38 @@ const Signup = () => {
     //   alert("Passwords do not match");
     //   return false;
     // }
-
+    setIsLoading(true);
+    // if (isLoading) {
+    //   return <Loading isLoading={isLoading} />;
+    // }
     const newForm = new FormData();
     newForm.append("file", avatar);
     newForm.append("email", email);
     newForm.append("name", name);
     newForm.append("password", password);
+
     axios
       .post(`${server}/user/create-user`, newForm, config)
       .then((response) => {
+        setIsLoading(false);
+
+        navigate("/login");
         toast.success(response.data.message);
       })
       .catch((err) => {
+        setIsLoading(false);
+
         console.log(err);
         toast.error(err.response.data.message);
       });
   };
+  useEffect(() => {
+    setTimeout(() => setIsLoading(false), 3300);
+  }, [setIsLoading]);
+
+  if (isLoading) {
+    return <Loading />;
+  }
   return (
     <div className="min-h-screen bg-gray-50 flex flex-col justify-center py-6 sm:px-6 lg:px-8">
       <div className="sm:mx-auto flex-col sm:w-full sm:max-w-md flex">

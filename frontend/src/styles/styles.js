@@ -9,7 +9,7 @@ const styles = {
   shop_name: "pt-3 text-[15px] text-blue-400 pb-3",
   active_indicator: "absolute bottom-[-27%] left-0 h-[3px] w-full bg-[crimson]",
   button:
-    "w-[150px] font-Gilroy bg-black h-[45px] hover:bg-gray-900 my-3 flex fonts-san items-center justify-center rounded-xl cursor-pointer",
+    "w-[150px] font-Gilroy bg-black h-[45px] hover:bg-gray-800 transition-ease-in-out duration-300 my-3 flex fonts-san items-center justify-center rounded-xl cursor-pointer",
   cart_button:
     "px-[20px] h-[38px] rounded-[20px] bg-[#f63b60] flex items-center justify-center cursor-pointer",
   cart_button_text: "text-[#fff] text-[16px] font-[600]",
